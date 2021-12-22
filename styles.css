@@ -21,6 +21,12 @@ html {
   box-sizing: inherit;
 }
 
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
 body {
   margin: 0;
   padding: 10rem 1rem;
@@ -30,13 +36,22 @@ body {
     var(--gradient-violet),
     var(--gradient-blue)
   );
+  color: var(--text-blue);
 }
+
+button {
+  font-family: inherit;
+}
+/* ------------------ */
+/* CARD LAYOUT STYLES MOBILE */
+/* ------------------ */
 
 .card {
   position: relative;
   background-color: #fff;
   border-radius: 1.4375rem;
   max-width: 56rem;
+  padding: 2.875rem 1.5rem;
   background-image: url("images/bg-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-position: center 0%;
@@ -66,19 +81,98 @@ body {
   padding-top: 7rem;
 }
 
+/* ----------------------- */
+/* ACCORDION STYLES MOBILE */
+/* ----------------------- */
+.accordion {
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--divider-blue);
+  padding-top: 1rem;
+}
+
+.accordion__item h2 {
+  margin-bottom: 0;
+}
+
+.accordion__question {
+  border: none;
+  background: transparent;
+  padding: 0rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion__question::after {
+  content: "";
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: none;
+  background-image: url("images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion__question:focus,
+accordion__question:focus-visible {
+  outline: dashed 1px rgba(0, 0, 0, 0.25);
+}
+
+.accordion__question.open {
+  font-weight: 700;
+}
+
+.accordion__question.open::after {
+  transform: rotate(-180deg);
+}
+
+.accordion__content {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  padding-bottom: 1rem;
+}
+
+.accordion__collapse {
+  transition: height 0.3s ease;
+}
+
+.accordion__collapse.collapse {
+  display: none;
+}
+
+.accordion__collapse.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.accordion__collapse.open {
+  display: block;
+}
+
+/* --------------------- */
+/* DESKTOP MEDIA QUERIES */
+/* --------------------- */
 @media (min-width: 56em) {
   .body {
     padding: 5rem;
   }
-
+  /* CARD STYLES DESKTOP */
   .card {
     position: relative;
     display: flex;
     margin: 0 auto;
-    padding-right: 2rem;
+    padding: 4.375rem 6.25rem 4.375rem 0;
     background-image: url("images/bg-pattern-desktop.svg");
     background-size: 45%;
-
     background-position: -13% center;
   }
 
@@ -113,5 +207,21 @@ body {
 
   .card__text {
     padding-top: 0;
+  }
+
+  /* ----------------------- */
+  /* ACCORDION STYLES DESKTOP */
+  /* ----------------------- */
+  .accordion {
+  }
+
+  .accordion__item {
+  }
+
+  .accordion__question {
+    font-size: 0.8125rem;
+  }
+
+  .accordion__content {
   }
 }
